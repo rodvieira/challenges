@@ -3,7 +3,7 @@ const mysql = require('mysql')
 const ejs = require('ejs');
 
 const app = express()
-const port = 3003
+const port = 3005
 
 const config = {
   host: 'mysqldb',
@@ -26,14 +26,24 @@ function getPeopleList(callback) {
   const randomName = generateNames()
   const connection = mysql.createConnection(config)
 
-  connection.connect(() => {
-    const queryInsertPeople = `INSERT INTO people(name) values('${randomName}')`
+  const queries = [`
+    CREATE TABLE IF NOT EXISTS people (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(255) NOT NULL
+    )
+    `, 
+    `INSERT INTO people(name) values('${randomName}')`,
+    'SELECT * FROM people'
+  ]
 
-    connection.query(queryInsertPeople)
-    connection.query('SELECT * FROM people', (error, results) => {
-      connection.end();
-      callback(null, results);
-    });
+  connection.connect(() => {
+    queries.forEach(query => {
+      connection.query(query, (error, results) => {
+        if (Array.isArray(results)) callback(null, results);
+      });
+    })
+
+    connection.end();
   });
 }
 
