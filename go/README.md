@@ -1,4 +1,4 @@
-# Desafio Concluído - Publicando uma Imagem Go no Docker Hub
+# Desafio - Publicando uma Imagem Go no Docker Hub
 
 Este repositório contém a solução para o desafio de publicar uma imagem Go no Docker Hub. O objetivo era criar uma imagem que, ao ser executada com o comando `docker run <seu-user>/fullcycle`, exibisse a mensagem "Full Cycle Rocks!!".
 
