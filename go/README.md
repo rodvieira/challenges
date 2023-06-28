@@ -40,10 +40,6 @@ Após concluir o desafio, foi possível criar e publicar uma imagem Go no Docker
 
 Para mais detalhes sobre o desafio e a solução implementada, consulte o repositório completo do projeto.
 
-## Repositório do Projeto
-
-O repositório do projeto com o desafio concluído pode ser encontrado [aqui](link-do-repositorio).
-
 ## Imagem no Docker Hub
 
 A imagem do projeto Go no Docker Hub pode ser acessada através do seguinte link: [Link imagem Docker Hub](https://hub.docker.com/r/r0ds/fullcycle).
