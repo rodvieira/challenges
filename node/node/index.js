@@ -6,7 +6,7 @@ const app = express()
 const port = 3005
 
 const config = {
-  host: 'mysqldb',
+  host: 'db',
   user: 'root',
   password: 'root',
   database: 'nodedb'

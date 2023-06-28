@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  mysql-db:
+  db:
     image: mysql:5.7
     command: --innodb-use-native-aio=0
-    container_name: mysqldb
+    container_name: db
     restart: always
     tty: true
     dns:
@@ -21,15 +21,17 @@ services:
     build:
       context: ./node
     container_name: nodejsserver
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh node index.js
     hostname: nodejsserver
     volumes:
       - ./node:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
       - "3005:3005"
     dns:
       - 8.8.8.8
     depends_on:
-      - mysql-db
+      - db
     networks:
       - node-with-nginx
 
