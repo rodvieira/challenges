@@ -22,4 +22,15 @@ export default class OrderRepository {
       }
     );
   }
+
+  async update(entity: Order): Promise<void> {
+    await OrderModel.update(
+      {
+        customer_id: entity.customerId,
+      },
+      {
+        where: { id: entity.id },
+      }
+    );
+  }
 }
