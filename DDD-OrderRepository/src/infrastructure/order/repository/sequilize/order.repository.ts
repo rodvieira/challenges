@@ -39,7 +39,7 @@ export default class OrderRepository implements OrderRepositoryInterface {
   async find(id: string): Promise<Order> {
     const orderModel = await OrderModel.findOne({ where: { id }, include: [{ model: OrderItemModel }] });
 
-    const orderItems = orderModel.items.map((orderItem) => new OrderItem(
+    const orderItems = orderModel!.items.map((orderItem) => new OrderItem(
       orderItem.id,
       orderItem.name,
       orderItem.price,
@@ -47,7 +47,8 @@ export default class OrderRepository implements OrderRepositoryInterface {
       orderItem.quantity
     ))
 
-    return new Order(orderModel.id, orderModel.customer_id, orderItems);
+    return new Order(orderModel!.id, orderModel!.customer_id, orderItems);
+
   }
 
   async findAll(): Promise<Order[]> {
