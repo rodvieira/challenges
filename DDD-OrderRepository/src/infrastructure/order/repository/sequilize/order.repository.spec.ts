@@ -65,7 +65,7 @@ describe("Order repository test", () => {
       include: ["items"],
     });
 
-    expect(orderModel.toJSON()).toStrictEqual({
+    expect(orderModel!.toJSON()).toStrictEqual({
       id: "123",
       customer_id: "123",
       total: order.total(),
@@ -119,7 +119,7 @@ describe("Order repository test", () => {
       where: { id: order.id },
     });
 
-    expect(orderModel.toJSON()).toStrictEqual({
+    expect(orderModel!.toJSON()).toStrictEqual({
       id: order.id,
       customer_id: secondCustomer.id,
       total: order.total(),
@@ -156,7 +156,7 @@ describe("Order repository test", () => {
       where: { id: order.id },
     });
 
-    expect(orderModel.toJSON()).toStrictEqual({
+    expect(orderModel!.toJSON()).toStrictEqual({
       id: foundOrder.id,
       customer_id: foundOrder.customerId,
       total: foundOrder.total(),
