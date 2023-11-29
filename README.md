@@ -10,6 +10,10 @@ No primeiro desafio, a tarefa é publicar uma imagem Go no Docker Hub. A imagem 
 
 O segundo desafio consiste em utilizar o Nginx como um proxy reverso. A ideia principal é configurar o servidor Nginx para encaminhar solicitações dos usuários para uma aplicação Node.js. Essa aplicação, por sua vez, adiciona registros em um banco de dados MySQL. O retorno da aplicação Node.js para o Nginx deve incluir uma lista de nomes cadastrados no banco de dados.
 
+## Desafio 3 - TypeScript: OrderRepository
+
+Neste desafio, implementei a classe OrderRepository em TypeScript, garantindo a total conformidade com a interface OrderRepositoryInterface. A implementação foi validada por meio de testes automatizados abrangentes, cobrindo diversos cenários de uso.
+
 ## Considerações Finais
 
 Os desafios do curso FullCycle proporcionam uma oportunidade de aprender e aplicar diversos conceitos e tecnologias relevantes para o desenvolvimento e a infraestrutura de aplicações modernas. Cada desafio apresenta uma proposta diferente e oferece a chance de aprimorar suas habilidades técnicas e criativas.
