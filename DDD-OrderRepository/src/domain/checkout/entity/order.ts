@@ -26,7 +26,11 @@ export default class Order {
   }
 
   changeCustomer(newCustomerId: string): void {
-    this._customerId = newCustomerId
+    this._customerId = newCustomerId;
+  }
+
+  addItems(newItem: OrderItem): void {
+    this._items.push(newItem);
   }
 
   validate(): boolean {
