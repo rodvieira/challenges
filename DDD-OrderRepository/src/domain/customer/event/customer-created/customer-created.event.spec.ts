@@ -1,5 +1,5 @@
-import EventDispatcher from "../../@shared/event/event-dispatcher";
-import Customer from "../entity/customer";
+import EventDispatcher from "../../../@shared/event/event-dispatcher";
+import Customer from "../../entity/customer";
 import CustomerCreatedEvent from "./customer-created.event";
 import SendConsoleWhenCustomerIsCreatedHandler from "./handler/send-console-when-customer-is-created.handler";
 import SendSecondConsoleWhenCustomerIsCreatedHandler from "./handler/send-second-console-when-customer-is-created.handler";
@@ -21,10 +21,13 @@ describe("Customer domain events", () => {
     expect(
       eventDispatcher.getEventHandlers["CustomerCreatedEvent"][0]
     ).toMatchObject(firstCustomerEventHandler);
+    expect(
+      eventDispatcher.getEventHandlers["CustomerCreatedEvent"][1]
+    ).toMatchObject(secondCustomerEventHandler);
 
-    const productCreatedEvent = new CustomerCreatedEvent(customer);
+    const customerCreatedEvent = new CustomerCreatedEvent(customer);
 
-    eventDispatcher.notify(productCreatedEvent);
+    eventDispatcher.notify(customerCreatedEvent);
 
     expect(spyFirstCustomerEventHandler).toHaveBeenCalled();
     expect(spySecondCustomerEventHandler).toHaveBeenCalled();
